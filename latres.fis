@@ -1,0 +1,65 @@
+[System]
+Name='latres'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=11
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='pakaian'
+Range=[0 100]
+NumMFs=3
+MF1='kurang':'trimf',[0 0 20]
+MF2='cukup':'trimf',[15 47.5 80]
+MF3='besar':'trimf',[70 100 100]
+
+[Input2]
+Name='kosmetik'
+Range=[0 50]
+NumMFs=3
+MF1='kurang':'trimf',[-15 0 15]
+MF2='cukup':'trimf',[10 25 40]
+MF3='besar':'trimf',[30 50 50]
+
+[Input3]
+Name='aksesoris'
+Range=[0 25]
+NumMFs=3
+MF1='kurang':'trimf',[-10 0 10]
+MF2='cukup':'trimf',[5 12.5 20]
+MF3='besar':'trimf',[15 25 35]
+
+[Input4]
+Name='makanan'
+Range=[0 80]
+NumMFs=3
+MF1='kurang':'trimf',[-30 0 30]
+MF2='cukup':'trimf',[20 40 60]
+MF3='besar':'trimf',[50 80 80]
+
+[Output1]
+Name='output1'
+Range=[0 140]
+NumMFs=3
+MF1='kurang_diminati':'trimf',[-60 0 60]
+MF2='cukup_diminati':'trimf',[50 65 80]
+MF3='sangat_diminati':'trimf',[70 140 196]
+
+[Rules]
+1 1 1 1, 1 (1) : 1
+1 1 1 2, 1 (1) : 1
+1 1 1 3, 1 (1) : 1
+1 1 2 1, 1 (1) : 1
+1 1 2 2, 1 (1) : 1
+1 1 2 3, 2 (1) : 1
+1 1 3 1, 1 (1) : 1
+1 1 3 2, 2 (1) : 1
+1 1 3 3, 2 (1) : 1
+2 2 2 2, 3 (1) : 1
+3 3 3 3, 3 (1) : 1
